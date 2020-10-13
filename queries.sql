@@ -131,6 +131,8 @@ where state not in ('New York', 'California', 'Texas');
 */
 
 -- your query here
+select city, state, population_estimate_2018 from cities
+where city like 'S%';
 
 \echo ========= Problem 3.8 ====================================================
 \echo
@@ -142,6 +144,8 @@ where state not in ('New York', 'California', 'Texas');
 */
 
 -- your query here
+select city from cities
+where land_area_sq_mi_2016 > 400 or population_estimate_2018 > 2000000;
 
 \echo ========= Problem 3.9 ====================================================
 \echo
@@ -153,6 +157,9 @@ where state not in ('New York', 'California', 'Texas');
 */
 
 -- your query here
+select city, land_area_sq_mi_2016, population_estimate_2018  from cities
+where land_area_sq_mi_2016 > 400 and population_estimate_2018 < 2000000 or
+land_area_sq_mi_2016 < 400 and population_estimate_2018 > 2000000 ;
 
 \echo ========= Problem 3.10 ===================================================
 \echo
@@ -164,6 +171,9 @@ where state not in ('New York', 'California', 'Texas');
 */
 
 -- your query here
+select city, population_estimate_2018, population_census_2010 from cities
+where population_estimate_2018 - population_census_2010 > 200000;
+
 
 ---- Phase 4: Use a JOIN operation ---------------------------------------------
 -- Retrieve rows from multiple tables joining on a foreign key.
@@ -179,6 +189,8 @@ where state not in ('New York', 'California', 'Texas');
 */
 
 -- your query here
+SELECT name, city FROM airports
+INNER JOIN cities ON(airports.city_id = cities.id);
 
 \echo ========= Problem 4.2 ====================================================
 \echo
@@ -191,6 +203,9 @@ where state not in ('New York', 'California', 'Texas');
 */
 
 -- your query here
+select count(city) from airports
+inner join cities on (airports.city_id = cities.id)
+where city = 'New York';
 
 --------------------------------------------------------------------------------
 ---- Bonuses:
