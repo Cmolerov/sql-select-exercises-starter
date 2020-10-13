@@ -31,6 +31,9 @@
 */
 
 -- your query here
+SELECT city, state, population_estimate_2018
+FROM cities;
+
 
 \echo ========= Problem 2.2 ====================================================
 \echo
@@ -40,6 +43,8 @@
 */
 
 -- your query here
+Select name
+FROM airports;
 
 ---- Phase 3: Add WHERE clauses ------------------------------------------------
 -- Select specific rows from a table using WHERE and common operators.
@@ -52,6 +57,8 @@
 */
 
 -- your query here
+select population_estimate_2018 from cities
+where city = 'San Diego';
 
 \echo ========= Problem 3.2 ====================================================
 \echo
@@ -62,6 +69,8 @@
 */
 
  -- your query here
+select city, state, population_estimate_2018 from cities
+where city in ('Phoenix', 'Jacksonville' ,'Charlotte', 'Nashville');
 
 \echo ========= Problem 3.3 ====================================================
 \echo
@@ -72,6 +81,8 @@
 */
 
 -- your query here
+SELECT city, state, population_estimate_2018 from cities
+WHERE population_estimate_2018 BETWEEN 800000 AND 900000;
 
 \echo ========= Problem 3.4 ====================================================
 \echo
@@ -82,6 +93,8 @@
 */
 
 -- your query here
+select city from cities
+where population_estimate_2018 > 1000000;
 
 \echo ========= Problem 3.5 ====================================================
 \echo
@@ -90,21 +103,23 @@
      number of millions (i.e. without zeroes at the end: 1 million), and that
      uses a WHERE clause to return only the cities in Texas.
 */
-
+SELECT city, population_estimate_2018 / 1000000
+FROM cities
+WHERE state = 'Texas';
 -- your query here
 
 \echo ========= Problem 3.6 ====================================================
 \echo
 /*
-3.6) Write a SQL query to get the city and estimated population in 2018 in
-     number of millions (i.e. without zeroes at the end: 1 million), and that
-     uses a WHERE clause to return only the cities in Texas. Write a SQL query
+3.6)  Write a SQL query
      that uses a WHERE clause to get the city, state, and estimated population
      in 2018 of cities that are NOT in the following states:
      New York, California, Texas.
 */
 
 -- your query here
+select city, state, population_estimate_2018 from cities
+where state not in ('New York', 'California', 'Texas');
 
 \echo ========= Problem 3.7 ====================================================
 \echo
